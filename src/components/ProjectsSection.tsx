@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -33,56 +33,43 @@ const projects = [
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="py-24 section-alt relative overflow-hidden">
-    <div className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-    <div className="container mx-auto px-4 max-w-5xl relative">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">
-        My <span className="gradient-text">Projects</span>
-      </h2>
-      <p className="text-center text-muted-foreground mb-14 max-w-lg mx-auto">
+  <section id="projects" className="py-20 bg-secondary/50">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <h2 className="text-3xl font-bold text-center mb-2">Projects</h2>
+      <p className="text-center text-muted-foreground mb-12 max-w-md mx-auto">
         A selection of things I've built recently.
       </p>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((p, i) => (
+        {projects.map((p) => (
           <div
             key={p.title}
-            className="group relative bg-card rounded-xl border border-border p-7 flex flex-col hover:border-primary/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+            className="bg-card rounded-lg border border-border p-6 flex flex-col hover:shadow-md transition-shadow duration-300"
           >
-            {/* Project number badge */}
-            <div className="absolute -top-3 -right-3 w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-primary-foreground text-xs font-bold shadow-lg">
-              {String(i + 1).padStart(2, "0")}
-            </div>
-
-            <div className="flex items-center gap-3 mb-3">
-              <Folder className="h-5 w-5 text-primary" />
-              <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
-                {p.title}
-              </h3>
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
+            <h3 className="font-semibold text-lg mb-2">{p.title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
               {p.description}
             </p>
-            <div className="flex flex-wrap gap-2 mb-5">
+            <div className="flex flex-wrap gap-1.5 mb-4">
               {p.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs font-mono bg-primary/5 text-primary border border-primary/10 px-2.5 py-1 rounded-full"
+                  className="text-xs bg-secondary text-muted-foreground px-2 py-0.5 rounded"
                 >
                   {t}
                 </span>
               ))}
             </div>
             <div className="flex gap-3">
-              <Button size="sm" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-all" asChild>
+              <Button size="sm" variant="outline" asChild>
                 <a href={p.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
+                  <Github className="mr-1.5 h-4 w-4" />
                   Code
                 </a>
               </Button>
-              <Button size="sm" variant="ghost" className="hover:text-primary" asChild>
+              <Button size="sm" variant="ghost" asChild>
                 <a href={p.github} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
+                  <ExternalLink className="mr-1.5 h-4 w-4" />
                   Demo
                 </a>
               </Button>
