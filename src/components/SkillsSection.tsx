@@ -11,32 +11,29 @@ const skills = [
 ];
 
 const SkillsSection = () => (
-  <section id="skills" className="py-24 relative overflow-hidden">
-    <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-    <div className="container mx-auto px-4 max-w-4xl relative">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">
-        My <span className="gradient-text">Skills</span>
-      </h2>
-      <p className="text-center text-muted-foreground mb-14 max-w-lg mx-auto">
+  <section id="skills" className="py-20">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <h2 className="text-3xl font-bold text-center mb-2">Skills</h2>
+      <p className="text-center text-muted-foreground mb-12 max-w-md mx-auto">
         Technologies and tools I work with every day.
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="group bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
           >
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-2xl">{skill.icon}</span>
-              <span className="font-semibold text-sm">{skill.name}</span>
-              <span className="ml-auto text-sm font-mono text-primary font-medium">
+              <span className="text-xl">{skill.icon}</span>
+              <span className="font-medium text-sm">{skill.name}</span>
+              <span className="ml-auto text-sm font-mono text-muted-foreground">
                 {skill.level}%
               </span>
             </div>
-            <div className="h-2 rounded-full bg-muted overflow-hidden">
+            <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
               <div
-                className="h-full rounded-full gradient-bg transition-all duration-700 group-hover:shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
+                className="h-full rounded-full bg-primary transition-all duration-500"
                 style={{ width: `${skill.level}%` }}
               />
             </div>
