@@ -22,12 +22,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-card/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-card/80 backdrop-blur-xl shadow-sm border-b border-border/50"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#" className="text-xl font-bold gradient-text">
+        <a href="#" className="text-2xl font-extrabold gradient-text">
           KD
         </a>
 
@@ -37,12 +39,12 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:gradient-bg after:transition-all after:duration-300 hover:after:w-full"
             >
               {l.label}
             </a>
           ))}
-          <Button size="sm" asChild>
+          <Button size="sm" className="gradient-bg border-0 text-primary-foreground shadow-md hover:shadow-lg hover:scale-105 transition-all" asChild>
             <a href="/resume.pdf" download>
               <Download className="mr-2 h-4 w-4" />
               Resume
@@ -62,7 +64,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border animate-fade-up">
+        <div className="md:hidden bg-card/95 backdrop-blur-xl border-t border-border animate-fade-up">
           <div className="flex flex-col items-center gap-4 py-6">
             {navLinks.map((l) => (
               <a
@@ -74,7 +76,7 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <Button size="sm" asChild>
+            <Button size="sm" className="gradient-bg border-0 text-primary-foreground" asChild>
               <a href="/resume.pdf" download>
                 <Download className="mr-2 h-4 w-4" />
                 Resume
