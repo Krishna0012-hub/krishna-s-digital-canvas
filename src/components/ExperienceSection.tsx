@@ -3,7 +3,7 @@ import { Briefcase, Calendar } from "lucide-react";
 const experiences = [
   {
     role: "Junior Web Developer",
-    company: "Stackerbee Technology",
+    company: "Deep Connection Innovation Pvt Ltd",
     type: "Full-time",
     period: "Present",
     points: [

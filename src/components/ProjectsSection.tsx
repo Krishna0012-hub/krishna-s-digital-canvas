@@ -60,7 +60,7 @@ const ProjectsSection = () => (
                 </span>
               ))}
             </div>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               <Button size="sm" variant="outline" asChild>
                 <a href={p.github} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-1.5 h-4 w-4" />
@@ -73,7 +73,7 @@ const ProjectsSection = () => (
                   Demo
                 </a>
               </Button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

@@ -11,7 +11,29 @@ const ContactSection = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "Thanks for reaching out. I'll get back to you soon." });
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Hello Krishna,
+
+You have received a new message from your portfolio contact form.
+
+Name: ${form.name}
+Email: ${form.email}
+
+Message:
+${form.message}
+
+Best regards,
+${form.name}`
+    );
+
+    window.location.href = `mailto:krishnadubey0007@gmail.com?subject=${subject}&body=${body}`;
+
+    toast({
+      title: "Email draft ready!",
+      description: "Your email app has been opened with the message details.",
+    });
     setForm({ name: "", email: "", message: "" });
   };
 
@@ -31,8 +53,8 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Email</p>
-                <a href="mailto:krishna@example.com" className="text-sm font-medium hover:text-primary transition-colors">
-                  krishna@example.com
+                <a href="mailto:krishnadubey0007@gmail.com" className="text-sm font-medium hover:text-primary transition-colors">
+                  krishnadubey0007@gmail.com
                 </a>
               </div>
             </div>
@@ -49,9 +71,9 @@ const ContactSection = () => {
               <h3 className="font-medium mb-3 text-sm">Connect with me</h3>
               <div className="flex gap-2">
                 {[
-                  { icon: Linkedin, href: "https://linkedin.com/in/krishnadubey", label: "LinkedIn" },
-                  { icon: Github, href: "https://github.com/krishnadubey", label: "GitHub" },
-                  { icon: Mail, href: "mailto:krishna@example.com", label: "Email" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/krishna-dubey-57a915216/", label: "LinkedIn" },
+                  { icon: Github, href: "https://github.com/Krishna0012-hub", label: "GitHub" },
+                  { icon: Mail, href: "mailto:krishnadubey0007@gmail.com", label: "Email" },
                 ].map((social) => (
                   <a
                     key={social.label}

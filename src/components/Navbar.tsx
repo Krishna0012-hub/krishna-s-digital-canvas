@@ -29,8 +29,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#" className="text-xl font-bold text-foreground">
-          KD<span className="text-primary">.</span>
+        <a href="#" className="flex items-center" aria-label="Home">
+          <img
+            src="/logo.jpg"
+            alt="KD logo"
+            className="h-12 w-auto rounded-md object-contain"
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-6">
@@ -44,7 +48,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button size="sm" asChild>
-            <a href="/resume.pdf" download>
+            <a href="/Krishna_Resume (2).pdf" download="Krishna_Resume (2).pdf">
               <Download className="mr-1.5 h-4 w-4" />
               Resume
             </a>
@@ -74,7 +78,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button size="sm" asChild>
-              <a href="/resume.pdf" download>
+              <a href="/Krishna_Resume (2).pdf" download="Krishna_Resume (2).pdf">
                 <Download className="mr-1.5 h-4 w-4" />
                 Resume
               </a>
