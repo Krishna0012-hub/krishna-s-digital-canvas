@@ -11,47 +11,32 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("http://localhost/krishna-portfolio-backend/config/contact.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          to: CONTACT_EMAIL,
-          name: form.name,
-          email: form.email,
-          message: form.message,
-        }),
-      });
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Hello Krishna,
 
-      const rawResponse = await res.text();
-      const jsonStart = rawResponse.indexOf("{");
+You have received a new message from your portfolio contact form.
 
-      if (jsonStart === -1) {
-        throw new Error("Backend did not return valid JSON");
-      }
+Name: ${form.name}
+Email: ${form.email}
 
-      const data = JSON.parse(rawResponse.slice(jsonStart));
-      console.log("Response:", data);
+Message:
+${form.message}
 
-      if (!res.ok) {
-        throw new Error(data.message || "Request failed");
-      }
+Best regards,
+${form.name}`
+    );
 
-      if (data.status === "success") {
-        toast({ title: "Message sent successfully!" });
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        toast({ title: data.message || "Failed to send message" });
-      }
-    } catch (error) {
-      console.error(error);
-      toast({ title: "Error occurred" });
-    }
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+    toast({
+      title: "Email draft ready!",
+      description: "Your email app has been opened with the message details.",
+    });
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
