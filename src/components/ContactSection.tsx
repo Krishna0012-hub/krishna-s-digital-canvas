@@ -30,7 +30,8 @@ Best regards,
 ${form.name}`
     );
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    window.open(mailtoUrl, "_blank", "noopener,noreferrer");
 
     toast({
       title: "Email draft ready!",

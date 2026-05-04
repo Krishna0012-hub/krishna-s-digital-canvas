@@ -20,18 +20,18 @@ const HeroSection = () => (
         Building responsive and user-friendly web applications with modern technologies.
       </p>
       <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button size="lg" className="bg-emerald-400 px-8 font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-300" asChild>
+        <Button size="lg" className="bg-emerald-400 px-8 font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-300 text-align-center" asChild>
           <a href="#projects">
             View Projects
             <ArrowDown className="ml-2 h-4 w-4" />
           </a>
         </Button>
-        <Button size="lg" variant="outline" className="border-emerald-400/40 bg-white/[0.04] px-8 text-emerald-50 hover:bg-emerald-400 hover:text-slate-950" asChild>
+        {/* <Button size="lg" variant="outline" className="border-emerald-400/40 bg-white/[0.04] px-8 text-emerald-50 hover:bg-emerald-400 hover:text-slate-950" asChild>
           <a href="#contact">
             <Send className="mr-2 h-4 w-4" />
             Contact Me
           </a>
-        </Button>
+        </Button> */}
       </div>
     </div>
   </section>
