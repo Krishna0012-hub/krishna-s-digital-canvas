@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
+const CONTACT_EMAIL = "krishnajob0007@gmail.com";
+
 const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -19,6 +21,7 @@ const ContactSection = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          to: CONTACT_EMAIL,
           name: form.name,
           email: form.email,
           message: form.message,
@@ -70,8 +73,8 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-xs text-emerald-100/60">Email</p>
-                <a href="mailto:krishnadubey0007@gmail.com" className="text-sm font-medium text-emerald-50 transition-colors hover:text-emerald-300">
-                  krishnadubey0007@gmail.com
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-medium text-emerald-50 transition-colors hover:text-emerald-300">
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
@@ -90,7 +93,7 @@ const ContactSection = () => {
                 {[
                   { icon: Linkedin, href: "https://www.linkedin.com/in/krishna-dubey-57a915216/", label: "LinkedIn" },
                   { icon: Github, href: "https://github.com/Krishna0012-hub", label: "GitHub" },
-                  { icon: Mail, href: "mailto:krishnadubey0007@gmail.com", label: "Email" },
+                  { icon: Mail, href: `mailto:${CONTACT_EMAIL}`, label: "Email" },
                 ].map((social) => (
                   <a
                     key={social.label}
